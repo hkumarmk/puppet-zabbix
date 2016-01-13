@@ -355,7 +355,7 @@ There are some overall parameters which exists on all of the classes:
   }
   ```
 
-* `manage_firewall`: Wheter you want to manage the firewall. If true (Which is default), iptables will be configured to allow communications to zabbix ports.
+* `manage_firewall`: Wheter you want to manage the firewall. If true, iptables will be configured to allow communications to zabbix ports. (Default: False)
 * `manage_repo`:  If zabbix needs to be installed from the zabbix repositories (Default is true). When you have your own repositories, you'll set this to false. But you'll have to make sure that your repositorie is installed on the host.
   ```ruby
   class { 'zabbix::repo':
@@ -423,6 +423,7 @@ There are some zabbix specific parameters, please check them by opening the mani
 * `content`: When you have 1 userparameter entry which you want to install.
 * `script`: Low level discovery (LLD) script.
 * `template`: When you use exported resources (when manage_resources on other components is set to true) you'll can add the name of the template which correspondents with the 'content' or 'source' which you add. The template will be added to the host.
+* `script_dir`: When `script` is used, this parameter can provide the directly where this script needs to be placed. Default: '/usr/bin'
 
 ##limitations
 The module is only supported on the following operating systems:
